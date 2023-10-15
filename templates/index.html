@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation</title>
+</head>
+<body>
+    <div style="position: absolute; left: 10vw; top: 15vw;">
+        <img src="/static/credit.png" alt="img" height="450" width="450"/>
+    </div>
+
+    <div style="color: #753FBF; font-size: 1.2vw;text-align: center; margin-top: 3vw; font-family:monospace;">
+        <h1 class="headline">Customer Segmentation Prediction</h1>
+    </div>
+
+    <div style="position: absolute;right: 1vw;top: 14vw;">
+        <div style="width: 40vw;">
+            <form action="{{ url_for('predict')}}" method="post" >
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="1BALANCE_value" placeholder="BALANCE" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="BALANCE_FREQUENCY_value" placeholder="BALANCE_FREQUENCY" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="PURCHASES_value" placeholder="PURCHASES" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="ONEOFF_PURCHASES_value" placeholder="ONEOFF_PURCHASES" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="INSTALLMENTS_PURCHASES_value" placeholder="INSTALLMENTS_PURCHASES" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="CASH_ADVANCE_value" placeholder="CASH_ADVANCE" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="PURCHASES_FREQUENCY_value" placeholder="PURCHASES_FREQUENCY" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="ONEOFF_PURCHASES_FREQUENCY_value" placeholder="ONEOF_PURCHASES_FREQUENCY" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="PURCHASES_INSTALLMENTS_FREQUENCY_value" placeholder="PURCHASES_INSTALLMENTS_FREQUENCY" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="CASH_ADVANCE_FREQUENCY_value" placeholder="CASH_ADVANCE_FREQUENCY" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="CASH_ADVANCE_TRX_value" placeholder="CASH_ADVANCE_TRX" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="PURCHASES_TRX_value" placeholder="PURCHASES_TRX" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="CREDIT_LIMIT_value" placeholder="CREDIT_LIMIT" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="PAYMENTS_value" placeholder="PAYMENTS" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="MINIMUM_PAYMENTS_value" placeholder="MINIMUM_PAYMENTS" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="PRC_FULL_PAYMENT_value" placeholder="PRC_FULL_PAYMENT" required="required"/>
+                <input style="border: 2px solid #753FBF; border-radius: .6vw; padding:.6vw 5vw .6vw .8vw; margin-right: .5vw;margin-bottom: .5vw;font-family: monospace;" class="input" name="TENURE_value" placeholder="TENURE" required="required"/>
+                <button style="background-color: #753FBF;border: 0px; border-radius: .6vw; color: white;padding:.6vw 5vw .6vw 5.3vw;font-weight: bold;cursor: pointer;font-size: 1vw;font-family: monospace;" type="submit">PREDICT</button>
+            </form>
+
+            <h4 style="font-size: 1vw;font-family: monospace;margin-left: 5vw;">{{prediction_text}}</h4>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
